@@ -1,0 +1,41 @@
+.hero {
+  height: 850px;
+  background-color: #ce2829;
+  background-image: url("../assets/images/iteration-1-images/home-banner.png");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-size: cover;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  padding-top: 55px;
+}
+
+.hero-logo {
+  width: 260px;
+  margin-bottom: 50px;
+}
+
+.hero-title {
+  color: white;
+  font-size: 56px;
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: 1.5px;
+  margin-bottom: 35px;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.hero-button {
+  background-color: #fadc3f;
+  color: #292929;
+  padding: 14px 48px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: "Barlow", sans-serif;
+}

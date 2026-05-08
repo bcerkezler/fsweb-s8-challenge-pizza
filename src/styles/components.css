@@ -1,0 +1,28 @@
+.order-header {
+  background-color: #ce2829;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding-top: 32px;
+  padding-bottom: 28px;
+}
+
+.order-header img {
+  width: 260px;
+  margin-bottom: 24px;
+}
+
+.breadcrumb {
+  color: white;
+  font-size: 14px;
+}
+
+.breadcrumb a {
+  color: white;
+}
+
+.breadcrumb span:last-child {
+  color: #fadc3f;
+}
