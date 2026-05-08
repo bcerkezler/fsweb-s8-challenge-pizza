@@ -1,6 +1,11 @@
 import toppings from "../data/toppings";
 
-function Toppings({ formData, setFormData }) {
+function Toppings({
+  formData,
+  setFormData,
+  toppingError,
+  tooManyToppingsError,
+}) {
   function handleToppingChange(event) {
     const { value, checked } = event.target;
 
@@ -21,6 +26,13 @@ function Toppings({ formData, setFormData }) {
     <section className="toppings-section">
       <h3>Ek Malzemeler</h3>
       <p>En fazla 10 malzeme seçebilirsiniz. 5₺</p>
+      {toppingError && (
+        <p className="form-error">En az 4 malzeme seçmelisiniz.</p>
+      )}
+
+      {tooManyToppingsError && (
+        <p className="form-error">En fazla 10 malzeme seçebilirsiniz.</p>
+      )}
 
       <div className="toppings-grid">
         {toppings.map((topping) => (
@@ -31,7 +43,10 @@ function Toppings({ formData, setFormData }) {
               checked={formData.toppings.includes(topping)}
               onChange={handleToppingChange}
             />
-            {topping}
+
+            <span className="custom-checkbox"></span>
+
+            <span>{topping}</span>
           </label>
         ))}
       </div>

@@ -1,40 +1,23 @@
 function SizeSelector({ formData, handleChange }) {
   return (
-    <div className="form-section">
+    <div className="form-section size-section">
       <h3>Boyut Seç *</h3>
 
-      <label>
-        <input
-          type="radio"
-          name="size"
-          value="S"
-          checked={formData.size === "S"}
-          onChange={handleChange}
-        />
-        S
-      </label>
+      <div className="size-options">
+        {["S", "M", "L"].map((size) => (
+          <label key={size} className="size-option">
+            <input
+              type="radio"
+              name="size"
+              value={size}
+              checked={formData.size === size}
+              onChange={handleChange}
+            />
 
-      <label>
-        <input
-          type="radio"
-          name="size"
-          value="M"
-          checked={formData.size === "M"}
-          onChange={handleChange}
-        />
-        M
-      </label>
-
-      <label>
-        <input
-          type="radio"
-          name="size"
-          value="L"
-          checked={formData.size === "L"}
-          onChange={handleChange}
-        />
-        L
-      </label>
+            <span>{size}</span>
+          </label>
+        ))}
+      </div>
     </div>
   );
 }

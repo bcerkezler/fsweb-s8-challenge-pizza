@@ -14,7 +14,6 @@ import OrderSummary from "../components/OrderSummary";
 import "../styles/order.css";
 import "../styles/components.css";
 
-
 const initialForm = {
   name: "",
   size: "",
@@ -24,7 +23,7 @@ const initialForm = {
   quantity: 1,
 };
 
-function Order() {
+function Order({ setOrderData }) {
   const [formData, setFormData] = useState(initialForm);
   const history = useHistory();
 
@@ -44,6 +43,13 @@ function Order() {
     formData.toppings.length >= 4 &&
     formData.toppings.length <= 10;
 
+  const nameError = formData.name.length > 0 && formData.name.trim().length < 3;
+
+  const toppingError =
+    formData.toppings.length > 0 && formData.toppings.length < 4;
+
+  const tooManyToppingsError = formData.toppings.length > 10;
+
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -57,6 +63,7 @@ function Order() {
       })
       .then((response) => {
         console.log(response.data);
+        setOrderData(formData);
         history.push("/success");
       })
       .catch((error) => {
@@ -68,7 +75,6 @@ function Order() {
   return (
     <div className="order-page">
       <Header />
-
       <main className="order-container">
         <PizzaInfo />
 
@@ -83,13 +89,21 @@ function Order() {
               placeholder="İsmini gir"
             />
           </label>
+          {nameError && (
+            <p className="form-error">İsim en az 3 karakter olmalıdır.</p>
+          )}
 
           <div className="selectors">
             <SizeSelector formData={formData} handleChange={handleChange} />
             <DoughSelector formData={formData} handleChange={handleChange} />
           </div>
 
-          <Toppings formData={formData} setFormData={setFormData} />
+          <Toppings
+            formData={formData}
+            setFormData={setFormData}
+            toppingError={toppingError}
+            tooManyToppingsError={tooManyToppingsError}
+          />
 
           <OrderNote formData={formData} handleChange={handleChange} />
 

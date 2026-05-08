@@ -1,7 +1,11 @@
 .success-page {
-  min-height: 100vh;
   background-color: #ce2829;
   color: white;
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .success-content {
@@ -14,7 +18,7 @@
 
   text-align: center;
 
-  padding-top: 72px;
+  padding: 72px 24px 120px;
 }
 
 .success-small-text {
@@ -37,7 +41,7 @@
 .success-line {
   width: 100%;
   height: 1px;
-  background-color: rgba(255,255,255,0.4);
+  background-color: rgba(255, 255, 255, 0.4);
 
   margin-bottom: 48px;
 }
@@ -60,7 +64,7 @@
 .success-total {
   width: 100%;
 
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 6px;
 
   padding: 32px;

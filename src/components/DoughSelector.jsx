@@ -1,6 +1,6 @@
 function DoughSelector({ formData, handleChange }) {
   return (
-    <div className="form-section">
+    <div className="form-section dough-section">
       <h3>Hamur Seç *</h3>
 
       <select name="dough" value={formData.dough} onChange={handleChange}>
